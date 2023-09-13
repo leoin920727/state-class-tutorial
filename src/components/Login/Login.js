@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Login.css';
 
+//傳遞帳號資訊
 async function loginUser(credentials) {
  return fetch('http://localhost:8080/login', {
    method: 'POST',
@@ -17,13 +18,14 @@ export default function Login({ setToken }) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
 
+  // 傳遞成功後接收回傳的資料設定token
   const handleSubmit = async e => {
     e.preventDefault();
     const token = await loginUser({
       username,
       password
     });
-    setToken(token);
+    setToken(token);//回傳給父層
   }
 
   return(

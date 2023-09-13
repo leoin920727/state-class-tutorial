@@ -7,6 +7,7 @@ import Preferences from '../Preferences/Preferences';
 
 function App() {
   const [token, setToken] = useState();
+// 接受變數token,如果有才開啟頁面顯示
   if(!token) {
     return <Login setToken={setToken} />
   }
